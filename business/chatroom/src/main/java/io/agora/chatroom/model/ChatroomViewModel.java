@@ -130,6 +130,7 @@ public class ChatroomViewModel extends AndroidViewModel {
         joinImRoom.set(false);
         RtcRoomController.get().joinChannel(getApplication(), roomKitBean.getChannelId(),
                 ProfileManager.getInstance().getProfile().getRtc_uid(),
+                roomKitBean.getSoundEffect(),
                 roomKitBean.isOwner(),
                 new DefaultValueCallBack<Boolean>() {
                     @Override

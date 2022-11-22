@@ -82,7 +82,13 @@ internal class AgoraRtcClientEx : RtcBaseClientEx<RtcEngineEx>() {
 
         rtcEngine?.apply {
             when (config.soundType) {
-                SoundSelection.SocialChat, SoundSelection.Karaoke -> { // 社交语聊，ktv
+                SoundSelection.SocialChat ->{ // 社交语聊
+                    setAudioProfile(Constants.AUDIO_PROFILE_MUSIC_HIGH_QUALITY)
+                    setAudioScenario(Constants.AUDIO_SCENARIO_GAME_STREAMING)
+                    setParameters("{\"che.audio.custom_bitrate\":128000}");
+                    setParameters("{\"che.audio.custom_payload_type\":78}");
+                }
+                SoundSelection.Karaoke -> { // ktv
                     setChannelProfile(Constants.CHANNEL_PROFILE_LIVE_BROADCASTING)
                     setAudioProfile(Constants.AUDIO_PROFILE_MUSIC_HIGH_QUALITY)
                     setAudioScenario(Constants.AUDIO_SCENARIO_GAME_STREAMING)

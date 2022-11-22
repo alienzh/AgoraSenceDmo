@@ -71,12 +71,14 @@ class RtcRoomController : IRtcKitListener {
         context: Context,
         roomId: String,
         userId: Int,
+        soundEffect:Int,
         broadcaster: Boolean = false,
         joinCallback: ValueCallBack<Boolean>
     ) {
         rtcManger = RtcKitManager.initRTC(context, RtcInitConfig(BuildConfig.agora_app_id), this)
         rtcChannelConfig.roomId = roomId
         rtcChannelConfig.userId = userId
+        rtcChannelConfig.soundType = soundEffect
         rtcChannelConfig.broadcaster = broadcaster
         this.joinCallback = joinCallback
         this.broadcaster = broadcaster
